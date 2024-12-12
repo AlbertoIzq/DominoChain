@@ -7,13 +7,13 @@ try
     Console.WriteLine("Introduce the set of dominos, one by one like \"1 2\"" +
         "and press enter after each one. When you have finished, write \"end\":");
 
-    var dominos = new List<(int, int)>();
+    var dominos = new List<Domino>();
 
     string input = Console.ReadLine();
 
     while (!input.Equals("end"))
     {
-        dominos.Add(Utilities.ParseToTuple(input));
+        dominos.Add(Utilities.ParseToDomino(input));
         input = Console.ReadLine();
     }
 
@@ -23,7 +23,7 @@ try
     for (int i = 0; i < dominos.Count; i++)
     {
         Console.Write(" ");
-        Console.Write($"[{dominos[i].Item1} {dominos[i].Item2}]");
+        Console.Write(dominos[i].ToString());
     }
 
     Console.WriteLine("\n");
@@ -36,7 +36,7 @@ try
         Console.WriteLine("The found circular domino chain is:");
         foreach (var domino in chain)
         {
-            Console.Write($"[{domino.Item1}|{domino.Item2}] ");
+            Console.Write(domino.ToString());
         }
     }
     else

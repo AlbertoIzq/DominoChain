@@ -8,7 +8,7 @@ namespace DominoChain
 {
     public class Utilities
     {
-        public static (int, int) ParseToTuple(string input)
+        public static Domino ParseToDomino(string input)
         {
             // Split the input string by space and convert to integers
             var parts = input.Split(' ');
@@ -16,7 +16,7 @@ namespace DominoChain
             // Parse each part to integer and return as a tuple
             if (parts.Length == 2)
             {
-                return (int.Parse(parts[0]), int.Parse(parts[1]));
+                return new Domino(int.Parse(parts[0]), int.Parse(parts[1]));
             }
             else
             {
@@ -25,8 +25,9 @@ namespace DominoChain
         }
 
         // Method to find circular chain which can be considered as an Eulerian Circuit
-        public static List<(int, int)> FindCircularChain(List<(int, int)> dominos)
+        public static List<Domino> FindCircularChain(List<Domino> dominos)
         {
             return null;
         }
+    }
 }
